@@ -38,7 +38,6 @@ function Home() {
         if (el.target.value === 'all' || (el.target.id==='search-box' && el.target.value === '')) setApiUrl(`https://restcountries.com/v3.1/all`)
         else if (el.target.id==='search-box' && el.target.value !== '') setApiUrl(`https://restcountries.com/v3.1/name/${el.target.value}`)
         else setApiUrl(`https://restcountries.com/v3.1/region/${el.target.value}`)
-        console.log(apiUrl)
     }
 
     useEffect( () => {

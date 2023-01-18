@@ -8,7 +8,6 @@ function Main() {
     const [darkState, setDarkState] = useState(false)
     const setState = () => {
         setDarkState(!darkState);
-        console.log(darkState)
     }
 
     return(

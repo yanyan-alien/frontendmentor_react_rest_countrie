@@ -5,7 +5,7 @@ import Main from './components/mainComponent';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
         <Main/>
     </BrowserRouter>
   );
