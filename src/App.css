@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+/* - Homepage Items: 14px */
+/* - Detail Page: 16px  */
+/* - Weights: 300, 600, 800 */
+:root {
+    color-scheme: light dark;
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --element_color: hsl(0, 0%, 100%);
+        --text-color: hsl(200, 15%, 8%);
+        --input_color: hsl(0, 0%, 52%);
+        --background: hsl(0, 0%, 98%);
+        /* shadow color */
+
+        --shadow: #efefef;
+    }
+}
+@media (prefers-color-scheme: dark){
+    :root {
+        --element_color: hsl(209, 23%, 22%);
+        --text-color: hsl(0, 0%, 100%);
+        --input_color: hsl(0, 0%, 52%);
+        --background:  hsl(207, 26%, 17%);
+        /* shadow color */
+
+        --shadow: hsl(209deg 21% 16%);
+    }
+    #region-select  {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    }
+}
+.dark #region-select  {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.App.dark {
+    --element_color: hsl(209, 23%, 22%);
+    --text-color: hsl(0, 0%, 100%);
+    --input_color: hsl(0, 0%, 52%);
+    --background:  hsl(207, 26%, 17%);
+    /* shadow color */
+
+    --shadow: hsl(209deg 21% 16%);
+
+    background-color: var(--background);
+    transition: background-color ease-in-out 0.7s
+}
+html, body, .App, #root {
+    height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: 'Nunito Sans', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.country_card, #region-select, #search-box {
+    background-color: var(--element_color);
+    transition: background-color ease-in-out 0.8s;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2, .navbar-brand, div, span, button, select {
+    color: var(--text-color) !important;
 }
-
-.App-link {
-  color: #61dafb;
+.navbar {
+    background-color: var(--element_color);
+    border-bottom: 1px solid;
+    border-color: var(--shadow);
+    box-shadow: 3px 0px 5px 3px var(--shadow);
+    transition: background-color ease-in-out 0.7s, border-color ease-in-out 0.7s, box-shadow ease-in-out 0.7s;
 }
+#theme-switcher {
+    border: none;
+}
+#home, #details {
+    margin-top: 2rem;
+}
+.navbar-brand {
+    font-weight: 800;
+}
+#functions-container {
+    position: relative;
+}
+#search-box {
+    color: var(--text-color);
+    width: unset;
+    /* padding: 0.8rem 0; */
+    /* padding-left: 3rem; */
+}
+#search-box-icon {
+    position: absolute;
+    top: 8.9px;
+    left: 10.5px;
+}
+::placeholder {
+    color: var(--input_color);
+}
+#region-select {
+    /* padding: 0 1.5rem; */
+    /* margin-right: 1rem; */
+    width: unset;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")
+}
+#search-box, #region-select, .country_card {
+    border-color: transparent;
+    box-shadow: 0 4px 8px 0 var(--shadow), 0 6px 20px 0 var(--shadow);
+    transition:  box-shadow ease-in-out 0.6s;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.btn.back-btn {
+    padding: 0.3rem 2rem;
+}
+.btn.custom-btn {
+    background-color: var(--element_color);
+    box-shadow: 0 4px 8px 0 var(--shadow), 0 6px 20px 0 var(--shadow);
+    transition: background-color ease-in-out 0.7s, box-shadow ease-in-out 0.7s;
+    border: none;
+}
+.border-btn {
+    margin: 0 0.5rem;
+}
+.container .row {
+    /* margin-left: 0;
+    margin-right: 0; */
+}
+#country-container, .wrapper {
+    /* margin-left: 0;
+    margin-right: 0; */
+    margin-top: 1.5rem;
+}
+.country_card {
+    cursor: pointer;
+    transition: transform .3s ease-in;
+    transform: scale(1);
+}
+.country_card:hover {
+    transform: scale(1.1);
+}
+.country_card .card-body {
+    font-weight: 600;
+}
+.country_card .card-body .country-name{
+    font-weight: 800;
+    font-size: 18px;
+}
+.country_card .card-body span {
+    font-weight: 300;
+}
+.image-container {
+    display: flex;
+}
+.image-container img {
+    align-self: center;
+    width: 100%;
+}
+.text_wrapper {
+    margin-left: 3rem;
+    /* margin-top: 3rem; */
+}
+.text_wrapper .col div {
+    font-weight: 600;
+}
+h2.country_name, #border_countries h4 {
+    font-weight: 800;
+}
+.country_info {
+    margin-top: 0rem;
+}
+.country_info .col div {
+    margin-bottom: 0.2rem;
+}
+.text_wrapper .col div span {
+    font-weight: 300;
+}
+#border_countries {
+    margin-top: 3rem;
+}
+button.border-btn:first-child {
+    margin-left: 0;
+}
+@media screen and (max-width:575.98px) {
+    .text_wrapper {
+        margin-left: 0;
+    }
+    .container{
+        --bs-gutter-x: 2rem;
+    }
+    #functions-container.row {
+        --bs-gutter-x: 0rem;
+    }
+    .country_card:hover {
+        transform: scale(1.02);
+    }
 }
