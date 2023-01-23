@@ -12,7 +12,7 @@ function Main() {
 
     return(
         <div className={darkState ? 'App dark' : 'App'} >
-            <Header setState={setState}/>
+            <Header setState={setState} darkState={darkState} />
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="*" element={<Home/>}/>

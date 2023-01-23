@@ -46,7 +46,7 @@
     transition: background-color ease-in-out 0.7s
 }
 html, body, .App, #root {
-    height: 100%;
+    min-height: 100vh;
 }
 
 body {
@@ -117,15 +117,17 @@ h2, .navbar-brand, div, span, button, select {
 }
 .border-btn {
     margin: 0 0.5rem;
+    margin-top: 0.5rem;
 }
-.container .row {
-    /* margin-left: 0;
-    margin-right: 0; */
+.border-btn-container {
+    margin-left: -0.5rem;
 }
 #country-container, .wrapper {
-    /* margin-left: 0;
-    margin-right: 0; */
     margin-top: 1.5rem;
+}
+#country-container {
+    margin-left: calc(var(--bs-gutter-x) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -1);
 }
 .country_card {
     cursor: pointer;
@@ -154,7 +156,6 @@ h2, .navbar-brand, div, span, button, select {
 }
 .text_wrapper {
     margin-left: 3rem;
-    /* margin-top: 3rem; */
 }
 .text_wrapper .col div {
     font-weight: 600;
@@ -174,13 +175,7 @@ h2.country_name, #border_countries h4 {
 #border_countries {
     margin-top: 3rem;
 }
-button.border-btn:first-child {
-    margin-left: 0;
-}
 @media screen and (max-width:575.98px) {
-    .text_wrapper {
-        margin-left: 0;
-    }
     .container{
         --bs-gutter-x: 2rem;
     }
@@ -189,5 +184,18 @@ button.border-btn:first-child {
     }
     .country_card:hover {
         transform: scale(1.02);
+    }
+}
+
+@media screen and (max-width:767.98px) {
+    .text_wrapper {
+        margin-left: 0;
+    }
+    #border_countries {
+        margin-bottom: 3rem;
+    }
+    #country-container {
+        margin-left: calc(var(--bs-gutter-x) * -0.5);
+        margin-right: calc(var(--bs-gutter-x) * -0.5);
     }
 }
